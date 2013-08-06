@@ -15,6 +15,21 @@
 
 \begin{document}
 
-Nothing
+\section{Dead layer size calculation}
+
+\noindent Gain equality ($\mu$ - ADC, $E$ - measured energy):
+\begin{equation}
+\frac{\mu_{Am}}{E_{Am} - E_{DLAm}} = \frac{\mu_{Gd}}{E_{Gd} - E_{DLGd}}
+\end{equation}
+and constant stopping power approximation:
+\begin{equation}
+E_{DLAm} \simeq x_{DL} \lambda_{Am}\qquad
+E_{DLGd} \simeq x_{DL} \lambda_{Gd}\qquad
+\end{equation}
+yield:
+\begin{equation}
+x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am}\lambda_{Gd}}
+\end{equation}
+In the case of $\lambda_{Am}=\lambda_{Gd}$ this degenerates into a simple line fit
 
 \end{document}
