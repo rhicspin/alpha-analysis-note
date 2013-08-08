@@ -10,12 +10,39 @@
 \renewcommand\linenumberfont{\normalfont\tiny}
 \linenumbers
 \usepackage{wrapfig}
+\usepackage{authblk}
 
-\title{Alpha calibration at RHIC pC polarimeter}
+\title{The Study of the Silicon Detector Response for p-Carbon Polarization Measurements at RHIC}
+
+\author[1]{D.~Smirnov\thanks{d.s@plexoos.com}}
+\author[2]{D.~Kalinkin}
+\author[]{\ldots}
+
+\affil[1]{Brookhaven National Lab}	
+\affil[2]{ITEP}
 
 \begin{document}
 
-\section{Dead layer size calculation}
+\maketitle
+
+\abstract{At RHIC the measurements of proton beam polarization are carried out
+by inserting a carbon target in the beam, and regestering the scattered carbon
+ions with silicon detectors. In this note we present the results of the
+analysis of the silicon detectors response to carbon atoms and alpha particles.}
+
+\section{Motivation and Measurement Principles}
+
+During the 2013 run we observed significant changes in the gain in some of the
+silicon detector. The detector gain was monitored by taking calibration runs
+when there was no beam in the machine. We use two radioactive source emmiting
+alpha particles at known energies.
+
+
+\section{Results}
+
+in Figure~\ref{fig:}
+
+\subsection{Dead layer size calculation}
 
 \noindent Gain equality ($\mu$ - ADC, $E$ - measured energy):
 \begin{equation}
@@ -31,5 +58,7 @@ yield:
 x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am}\lambda_{Gd}}
 \end{equation}
 In the case of $\lambda_{Am}=\lambda_{Gd}$ this degenerates into a simple line fit
+
+\section{Conclusions}
 
 \end{document}
