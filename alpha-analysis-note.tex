@@ -10,6 +10,7 @@
 \renewcommand\linenumberfont{\normalfont\tiny}
 \linenumbers
 \usepackage{wrapfig}
+\usepackage{subcaption}
 \usepackage{authblk}
 
 \title{The Study of the Silicon Detector Response for p-Carbon Polarization Measurements at RHIC}
@@ -35,31 +36,164 @@ analysis of the silicon detectors response to carbon atoms and alpha particles.
 \section{Motivation and Measurement Principles}
 
 During the 2013 run we observed significant changes in the gain in some of the
-silicon detector. The detector gain was monitored by taking calibration runs
+silicon detectors. The detector gain was monitored by taking calibration runs
 when there was no beam in the machine. We use two radioactive source emmiting
 alpha particles at known energies.
 
-
 \section{Results}
 
-in Figure~\ref{fig:}
+\subsection{Calibration}
 
-\subsection{Dead layer size calculation}
+Some calorimetry is done by measuring amplitudes and integrals of the signals
+from the silicon detector. In order to convert these values from ADC counts
+to the energy scale units we need to obtain properties of our calibration
+curve i.e. calibrate. One of the possible calibration procedures is alpha
+calibration. The idea is to put low intensity fixed energy alpha source
+somewhere in acceptance region of the detector and then look for the corresponding
+peak in the distribution of particles by ADC bins. Alpha source energy and
+position of this peak give us fixed point on the calibration curve.
 
-\noindent Gain equality ($\mu$ - ADC, $E$ - measured energy):
+At the moment, two polarimeters (Y1D and B1U) has only a single americium source
+($E_{\text{Am}} = 5486.0\text{ MeV}$), while other two (Y2U and B2D) has also additional
+gadolinium source ($E_{\text{Gd}} = 3271.21\text{ MeV}$). Before now only americium point was
+used, the relation between americium energy $E_{\text{Am}}$ and peak position $\mu_{\text{Am}}$
+was called americium gain. Conversion from ADC counts were performed by multiplying by this value.
+
+Information about gadolinium peak can tell us more about our calibration curve.
+For instance we can take gadolinium gain and linear two-point (americium and gadolinium) fit slope
+ and compare them to americium gain (Fig.~\ref{fig:gain_relations}).
+
+\begin{figure}[p]
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chGdGain_over_AmGain_by_day_Y2U.eps}
+\caption{Relation of gadolinium and americium gains}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chAmGdGain_over_AmGain_by_day_Y2U.eps}
+\caption{Relation of two-point (americium and gadolinium) linear fit slope and americium gain}
+\end{subfigure}
+\caption{Comparison of different approaches to gain calculation (data for Y2D polarimeter).}
+\label{fig:gain_relations}
+\end{figure}
+
+\subsection{Dead layer size}
+
+\begin{wrapfigure}[10]{r}{0.3\textwidth}
+\vspace{-30pt}
+\begin{center}
+\end{center}
+\caption{Linear approximation calibraion curve}
+\label{fig:calib_curve}
+\end{wrapfigure}
+
+Our model for silicon detector assumes that there is a layer where our detector has
+zero response as a calorimeter -- dead layer. Adding gadolinium alpha source to the
+setup allows us to put one more calibration point on our callibration curve. Using
+americium and gadolinium points we can estimate thickness of this layer.
+
+Intersection of linear fit with energy axis gives us approximation to energy
+deposited by alpha particles in dead layer.
+Assuming that local gain values for both calibration point are equal we can write:
+
 \begin{equation}
-\frac{\mu_{Am}}{E_{Am} - E_{DLAm}} = \frac{\mu_{Gd}}{E_{Gd} - E_{DLGd}}
+\frac{\mu_{Am}}{E_{Am} - E_{DLAm}} = \frac{\mu_{Gd}}{E_{Gd} - E_{DLGd}},
+\label{eq:gain_equality}
 \end{equation}
-and constant stopping power approximation:
+
+\noindent where $\mu$ -- measured ADC counts, $E$ -- alpha source energy value.
+Stopping power for 5 MeV and 3 MeV alpha particles is different. Meanwhile
+particle passing through dead layer doesn't loose enough energy to let
+stopping power change. Thus giving us linear dependency for the loss energy.
+
 \begin{equation}
 E_{DLAm} \simeq x_{DL} \lambda_{Am}\qquad
 E_{DLGd} \simeq x_{DL} \lambda_{Gd}\qquad
+\label{eq:linear_loss}
 \end{equation}
-yield:
+
+Combining (\ref{eq:gain_equality}) and (\ref{eq:linear_loss}) we obtain following formula
+for dead layer size:
+
 \begin{equation}
 x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am}\lambda_{Gd}}
+\label{eq:x_dl}
 \end{equation}
-In the case of $\lambda_{Am}=\lambda_{Gd}$ this degenerates into a simple line fit
+
+\begin{figure}[p]
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chDeadLayerEnergy_by_day_B2D.eps}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chDeadLayerEnergy_by_day_Y2U.eps}
+\end{subfigure}
+\caption{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing energy value extracted from linear fit
+of the americium and gadolinium points.}
+\end{figure}
+
+\begin{figure}[p]
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chDeadLayerSize_by_day_B2D.eps}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chDeadLayerSize_by_day_Y2U.eps}
+\end{subfigure}
+\caption{$x_{DL}$ is the dead layer thickness calculated using formula (\ref{eq:x_dl})}
+\end{figure}
+
+\subsection{Bias current}
+
+% TODO: write something about how out bias current varies over time
+
+One of the work parameters of our silicon detector that we measure is a bias current -- current
+constantly flowing through detector (in this case -- set of 12 strips). Current was measured
+for each of the six silicon detectors on all polarimeters, measurements were taken each five
+minutes. Values lie mostly in range from $-30$ to $0$~$\mu A$. It was interesting to see how
+this current affects calibration characteristics of our detector. For example, it is known 
+that higher bias voltage should decrease size of depleted zone, i.e. decrease size of dead layer.
+On our plots (Fig.~\ref{fig:bc_vs_xdl}) we see some weak correlation between dead layer size and bias
+current.
+
+\begin{figure}[p]
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_hBiasCurrent_DeadLayerSize.eps}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_hBiasCurrent_DeadLayerSize.eps}
+\end{subfigure}
+\caption{Bias current versus dead layer size dependency}
+\label{fig:bc_vs_xdl}
+\end{figure}
+
+Much stronger correlation is seen when we compare bias current with gain (Fig.~\ref{fig:bc_vs_gain}).
+Bias current during polarization measurement can differ from the bias current in the time of
+alpha measurement, so correction to gain value should be applied.
+
+Additional correlation seen on plots \ref{bc_vs_gain-b1u} and \ref{bc_vs_gain-y1d} corresponds to
+special set of measurements with varied bias voltage.
+
+\begin{figure}[p]
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/B1U/c_hBiasCurrent_AmAmpCoef.eps}
+\caption{B1U}\label{bc_vs_gain-b1u}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y1D/c_hBiasCurrent_AmAmpCoef.eps}
+\caption{Y1D}\label{bc_vs_gain-y1d}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_hBiasCurrent_AmAmpCoef.eps}
+\caption{B2D}\label{bc_vs_gain-b2d}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_hBiasCurrent_AmAmpCoef.eps}
+\caption{Y2U}\label{bc_vs_gain-y2u}
+\end{subfigure}
+
+\caption{Bias current versus americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) dependency}
+\label{fig:bc_vs_gain}
+\end{figure}
+
 
 \section{Conclusions}
 
