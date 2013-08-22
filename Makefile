@@ -1,6 +1,6 @@
 all : alpha-analysis-note.pdf
 
-alpha-analysis-note.pdf : alpha-analysis-note.tex gfx/calib_curve.tex
+alpha-analysis-note.pdf : alpha-analysis-note.tex $(wildcard gfx/*)
 	xelatex $<
 	xelatex $<
 
