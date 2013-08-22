@@ -186,6 +186,7 @@ x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am
 \end{subfigure}
 \caption{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing energy value extracted from linear fit
 of the americium and gadolinium points. Cut to remove outliers was applied to this plot.}
+\label{fig:e_dl}
 \end{figure}
 
 \begin{figure}[p]
@@ -199,11 +200,16 @@ of the americium and gadolinium points. Cut to remove outliers was applied to th
 \end{subfigure}
 \caption{$x_{DL}$ is the dead layer thickness calculated using formula (\ref{eq:x_dl}). Cut to remove
 outliers was applied to this plot.}
+\label{fig:x_dl}
 \end{figure}
 
 \subsection{Bias current}
 
 % TODO: write something about how out bias current varies over time
+
+On figures~\ref{fig:gain_relations},\ref{fig:e_dl} and \ref{fig:x_dl} there are few measurements
+before and after the beam session showing much lower spread. This looks to be a result of some
+parameter variation due to beam pickup.
 
 One of the work parameters of our silicon detector that we measure is a bias current -- current
 constantly flowing through detector (in this case -- set of 12 strips). Current was measured
