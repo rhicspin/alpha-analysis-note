@@ -1,8 +1,13 @@
 \documentclass[a4paper]{article}
 
+\usepackage{ifxetex}
 \usepackage{amsmath}
-\usepackage{fontspec}
-\usepackage{polyglossia}
+\ifxetex
+	\usepackage{fontspec}
+	\usepackage{polyglossia}
+\else
+	\usepackage{graphicx} % eps support
+\fi
 \usepackage[margin=20mm]{geometry}
 \usepackage[colorlinks=true]{hyperref}
 \urlstyle{same}
