@@ -195,50 +195,69 @@ equation~(\ref{eq:atten_linearity}).
 \label{fig:calib_curve}
 \end{wrapfigure}
 
-Our model for silicon detector assumes that there is a layer where our detector has
-zero response as a calorimeter -- dead layer. Adding gadolinium alpha source to the
-setup allows us to put one more calibration point on our callibration curve. Using
-americium and gadolinium points we can estimate thickness of this layer.
+Our model for silicon detector assumes that there is a layer where our detector
+has zero response as a calorimeter, i.e. the dead layer. Adding a gadolinium alpha
+source to the setup allows us to put one more calibration point on our
+calibration curve. Using americium and gadolinium points we can estimate
+the thickness of this layer.
 
-Intersection of linear fit with energy axis gives us approximation to energy
-deposited by alpha particles in dead layer.
-Assuming that local gain values for both calibration points are equal we can write:
+The energy where the linear fit intersects the horizontal axis gives us an
+estimate for the initial energy of incident alpha particles which would deposit
+all of their energy in the dead layer. While this quantity by itself can be used
+to monitor the stability of the dead layer over time, we also present the result
+in microns. For this we assume that the gain values for both calibration points
+are equal and we write:
 
 \begin{equation}
-\frac{\mu_{Am}}{E_{Am} - E_{DLAm}} = \frac{\mu_{Gd}}{E_{Gd} - E_{DLGd}},
+\frac{\mu_{Am}}{E_{Am} - E^\text{DL}_{Am}} = \frac{\mu_{Gd}}{E_{Gd} - E^\text{DL}_{Gd}},
 \label{eq:gain_equality}
 \end{equation}
 
-\noindent where $\mu$ -- measured ADC counts, $E$ -- alpha source energy value.
-Stopping power for 5 MeV and 3 MeV alpha particles is different. Meanwhile
-particle passing through dead layer doesn't loose enough energy to let
-stopping power change. Thus giving us linear dependency for the loss energy.
+\noindent where $\mu_\text{Am}$ and $\mu_\text{Gd}$ are the mean values of the
+alpha peaks measured in ADC units, $E_\text{Am}$ and $E_\text{Gd}$ are the
+incident energies of $\alpha$-particles, and $E^\text{DL}_{Am}$ and
+$E^\text{DL}_{Gd}$ are the energy losses in the dead layer for the respective
+alpha sources. The rate at which $\alpha$-particles loose their energy in the
+detector changes with the penetration depth. As the dead layer is relatively
+thin we can assume that the particles do not loose a significant fraction of
+their initial energy and the stopping power is approximately constant over this
+range. With a linear approximation for the total losses we have:
 
 \begin{equation}
-E_{DLAm} \simeq x_{DL} \lambda_{Am}\qquad
-E_{DLGd} \simeq x_{DL} \lambda_{Gd}\qquad
+E^\text{DL}_\text{Am} \simeq x_\text{DL} \lambda_\text{Am} \qquad
+E^\text{DL}_\text{Gd} \simeq x_\text{DL} \lambda_\text{Gd}
 \label{eq:linear_loss}
 \end{equation}
 
-\noindent Combining (\ref{eq:gain_equality}) and (\ref{eq:linear_loss}) we obtain following formula
-for dead layer size:
+\noindent
+with values for the stopping power $\lambda_\text{Am} = $ and $\lambda_\text{Gd}
+= $ taken from \cite{ASTAR_database}. Combining (\ref{eq:gain_equality}) and
+(\ref{eq:linear_loss}) we obtain the following formula for the size of the dead
+layer:
 
 \begin{equation}
 x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am}\lambda_{Gd}}
 \label{eq:x_dl}
 \end{equation}
 
+The thickness of the dead layer thus extracted from the all available
+calibration runs in Run~13 are shown in Figure~\ref{fig:x_dl}. The average size
+of the dead layer is estimated to be within 1 to 1.3 $\mu m$.
+
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chDeadLayerEnergy_by_day_B2D.eps}
 \caption{B2D}
 \end{subfigure}
+%
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chDeadLayerEnergy_by_day_Y2U.eps}
 \caption{Y2U}
 \end{subfigure}
-\caption{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing energy value extracted from linear fit
-of the americium and gadolinium points. Cut to remove outliers was applied to this plot.}
+%
+\caption{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing energy value
+extracted from linear fit of the americium and gadolinium points. Cut to remove
+outliers was applied to this plot.}
 \label{fig:e_dl}
 \end{figure}
 
