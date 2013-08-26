@@ -32,41 +32,66 @@
 \maketitle
 
 \begin{abstract}
-At RHIC the measurements of proton beam polarization are carried out
-by inserting a carbon target in the beam, and regestering the scattered carbon
-ions with silicon detectors. In this note we present the results of the
-analysis of the silicon detectors response to carbon atoms and alpha particles.
+
+At the Relativistic Heavy Ion Collider (RHIC) measurements of the proton beam
+polarization are carried out by inserting a carbon target in the beam, and
+registering the scattered carbon ions with silicon detectors. In this note we
+present the results of the analysis of the silicon detector response to carbon
+ions and $\alpha$-particles.
+
 \end{abstract}
 
-\section{Motivation and Measurement Principles}
+
+\section{Motivation}
+
+The RHIC polarimetry is based on the measurement of the recoil from elastic
+scattering of the proton beam on a fixed target in the Coulomb nuclear
+interference (CNI) energy regime. In this study we focus on the four p-Carbon
+polarimeters with ultra thin carbon targets which can be briefly moved into the
+beam. In the collider the polarization of each proton beam is measured by two
+p-Carbon polarimeters installed in the yellow and blue accelerator rings.
 
 During the 2013 run we observed significant changes in the gain in some of the
-silicon detectors. The detector gain was monitored by taking calibration runs
-when there was no beam in the machine. We use two radioactive source emmiting
-alpha particles at known energies.
+silicon detectors. This change of $\lesssim 20~\%$ is worrisome and may cause
+significant systematic change in the reported polarization values due to a steep
+slope in the $p$-Carbon analysing power within the energy range of interest.
 
-\section{Results}
 
-\subsection{Calibration}
+\section{Measurement and Results}
 
-Some calorimetry is done by measuring amplitudes and integrals of the signals
-from the silicon detector. In order to convert these values from ADC counts
-to the energy scale units we need to obtain properties of our calibration
-curve i.e. calibrate. One of the possible calibration procedures is alpha
-calibration. The idea is to put low intensity fixed energy alpha source
-somewhere in acceptance region of the detector and then look for the corresponding
-peak in the distribution of particles by ADC bins. Alpha source energy and
-position of this peak give us fixed point on the calibration curve.
+The detectors produced by the BNL instrumentation group have 12 one-millimeter
+silicon strips. The detector gain is normally monitored with calibration runs
+when there is no beam in the machine. For the calibration purposes we use
+$\phantom{A}^{??}$Am and $\phantom{G}^{??}$Gd radioactive sources emitting
+$\alpha$-particles with XXX and XXX energies correspondingly.
+
+Starting April XX, 2013 calibration runs were taken automatically after the beam
+dump at the end of every RHIC store.
+
+
+\subsection{Energy calibration with $\alpha$-particles}
+
+The energy of the recoil carbon ions can be reconstructed from either the
+amplitude or the integral of the signal in the silicon detector. In order to
+convert these values from ADC counts to the energy scale units we need to obtain
+properties of our calibration curve i.e. calibrate. One of the possible
+calibration procedures is alpha calibration. The idea is to put low intensity
+fixed energy alpha source somewhere in acceptance region of the detector and
+then look for the corresponding peak in the distribution of particles by ADC
+bins. Alpha source energy and position of this peak give us fixed point on the
+calibration curve.
 
 At the moment, two polarimeters (Y1D and B1U) has only a single americium source
-($E_{\text{Am}} = 5486.0\text{ MeV}$), while other two (Y2U and B2D) has also additional
-gadolinium source ($E_{\text{Gd}} = 3271.21\text{ MeV}$). Before now only americium point was
-used, the relation between americium energy $E_{\text{Am}}$ and peak position $\mu_{\text{Am}}$
-was called americium gain. Conversion from ADC counts were performed by multiplying by this value.
+($E_{\text{Am}} = 5486.0\text{ MeV}$), while other two (Y2U and B2D) has also
+additional gadolinium source ($E_{\text{Gd}} = 3271.21\text{ MeV}$). Before now
+only americium point was used, the relation between americium energy
+$E_{\text{Am}}$ and peak position $\mu_{\text{Am}}$ was called americium gain.
+Conversion from ADC counts were performed by multiplying by this value.
 
 Information about gadolinium peak can tell us more about our calibration curve.
-For instance we can take gadolinium gain and linear two-point (americium and gadolinium) fit slope
- and compare them to americium gain (Fig.~\ref{fig:gain_relations}).
+For instance we can take gadolinium gain and linear two-point (americium and
+gadolinium) fit slope and compare them to americium gain
+(Fig.~\ref{fig:gain_relations}).
 
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
@@ -82,15 +107,31 @@ Cut to remove outliers was applied to this plot.}
 \label{fig:gain_relations}
 \end{figure}
 
-\subsection{Atten}
 
-There are several stages of amplification of the detector signal. Some checks
-for linearity of this amplification can be done by inserting attenuators in
-different places of the signal path. Shaper motherboard has resistive divider
-with a multiplexer which is controlled by software. During alpha measurement
-this attenuator is switched to state $1/5$. Alpha peaks can be seen using
-different possible attenuator settings, which allows us to test stuff.
-Resulting distributions can be seen on (Fig.~\ref{fig:atten_distrib})
+\subsection{Linearity of amplifiers}
+
+The signal generated in the detector propagates through several stages of
+amplification. The linearity of the downstream amplifiers can be simply checked
+by attenuating the signal in a place on the signal path preceding the
+amplification, and then compare the reduced final amplitude with the expected
+one. The shaper boards have a resistive divider with a multiplexer controlled by
+software settings. For normal polarization measurements of sub-MeV carbon ions
+the on-board attenuator is set to 1, i.e. no signal attenuation. During regular
+alpha measurements the attenuator is set to $1/5$. In this study we check the
+other two attenuator settings of $1/10$ and $1/3$. The alpha peaks obtained with
+these attenuator settings are shown in Figure~\ref{fig:atten_distrib} and the
+mean values corresponding to the gaussian fits are listed in
+Table~\ref{table:atten}. Note that with the attenuator setting of $1/3$ the Am
+peak ends up in the overflow bin as the events are outside of the detector
+dynamic range. The cumulative effect of a possible non-linearity in the
+amplified signal is checked by using the trivial relation in which the mean of
+the peak is expected to scale with the attenuator settings:
+
+\begin{equation}
+\lambda_1/\lambda_2 = \mu_1/ \mu_2.
+\label{eq:atten_linearity}
+\end{equation}
+
 
 \begin{table}[htb]
 \caption{The mean positions of the Am and Gd alpha peaks at different attenuator settings.}
@@ -98,30 +139,33 @@ Resulting distributions can be seen on (Fig.~\ref{fig:atten_distrib})
 
 \begin{tabular}{clrr}
 \toprule
-Atten   &       Run ID & AmPeakPos      & GdPeakPos \\
+Attenuation $\lambda$ & Alpha Run Id      & Am Mean, ADC      & Gd Mean, ADC \\
 \midrule
-$\frac{1}{10}$  & \small{atten\_1\_over\_10.yel2.alpha0}        & $77.0\pm0.7$          & $44.2\pm0.4$ \\
+$\frac{1}{10}$  & \small{atten\_1\_over\_10.yel2.alpha0}  & $77.0\pm0.7$      & $44.2\pm0.4$ \\
 \addlinespace
-$\frac{1}{5}$   & \small{13\_310713.yel2.alpha0}                & $154.9\pm2.7$         & $88.9\pm1.5$ \\
+$\frac{1}{5}$   & \small{13\_310713.yel2.alpha0}          & $154.9\pm2.7$     & $88.9\pm1.5$ \\
 \addlinespace
-$\frac{1}{3}$   & \small{atten\_1\_over\_3.yel2.alpha0}         & ---\hspace{20pt}      & $149.4\pm2.5$ \\
+$\frac{1}{3}$   & \small{atten\_1\_over\_3.yel2.alpha0}   & ---\hspace{20pt}  & $149.4\pm2.5$ \\
 \bottomrule
 \end{tabular}
 
 \label{table:atten}
 \end{table}
 
-Then relative non-linearity values are
+\noindent
+This effect relative to one of the attenuator settings is then simply defined as
+$\Delta l = \frac{\lambda_1 \mu_2}{\lambda_2 \mu_1} - 1$. For the three pairs
+of measurements we calculate very small deviations from the linear
+equation~(\ref{eq:atten_linearity}).
 
 \begin{equation}
 \frac{154.9}{77.0 \times 2} - 1 = 0.6\%
 \qquad
 \frac{88.9}{44.0 \times 2} - 1 = 0.6\%
 \qquad
-\frac{149.4*3}{88.9 \times 5} - 1 = 0.8\%
+\frac{149.4 \times 3}{88.9 \times 5} - 1 = 0.8\%
 \end{equation}
 
-They are small enough.
 
 \begin{figure}[p]
 \begin{subfigure}[b]{0.3\textwidth}
