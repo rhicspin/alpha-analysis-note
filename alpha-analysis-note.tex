@@ -94,6 +94,7 @@ gadolinium) fit slope and compare them to americium gain
 (Fig.~\ref{fig:gain_relations}).
 
 
+\newcommand\amgainlabel{Americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) time dependency}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B1U/c_chAmGain_by_day_B1U.eps}
@@ -113,11 +114,13 @@ gadolinium) fit slope and compare them to americium gain
 \caption{Y2U}
 \end{subfigure}
 %
-\caption{Americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) time dependency}
+\caption{\amgainlabel}
 \label{fig:am_gain}
 \end{figure}
 
 
+\newcommand\gainrealationslabel{Comparison of different approaches to gain calculation (data for Y2D polarimeter).
+Cut to remove outliers was applied to this plot.}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chGdGain_over_AmGain_by_day_Y2U.eps}
@@ -127,8 +130,7 @@ gadolinium) fit slope and compare them to americium gain
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chAmGdGain_over_AmGain_by_day_Y2U.eps}
 \caption{Relation of two-point (americium and gadolinium) linear fit slope and americium gain}
 \end{subfigure}
-\caption{Comparison of different approaches to gain calculation (data for Y2D polarimeter).
-Cut to remove outliers was applied to this plot.}
+\caption{\gainrealationslabel}
 \label{fig:gain_relations}
 \end{figure}
 
@@ -269,6 +271,9 @@ The thickness of the dead layer thus extracted from the all available
 calibration runs in Run~13 are shown in Figure~\ref{fig:x_dl}. The average size
 of the dead layer is estimated to be within 1 to 1.3 $\mu m$.
 
+\newcommand\edllabellabel{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing 
+energy value extracted from linear fit of the americium and gadolinium points.
+Cut to remove outliers was applied to this plot.}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chDeadLayerEnergy_by_day_B2D.eps}
@@ -280,12 +285,12 @@ of the dead layer is estimated to be within 1 to 1.3 $\mu m$.
 \caption{Y2U}
 \end{subfigure}
 %
-\caption{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing energy value
-extracted from linear fit of the americium and gadolinium points. Cut to remove
-outliers was applied to this plot.}
+\caption{\edllabellabel}
 \label{fig:e_dl}
 \end{figure}
 
+\newcommand\xdllabel{$x_{DL}$ is the dead layer thickness calculated using formula (\ref{eq:x_dl}). Cut to remove
+outliers was applied to this plot.}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chDeadLayerSize_by_day_B2D.eps}
@@ -295,8 +300,7 @@ outliers was applied to this plot.}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chDeadLayerSize_by_day_Y2U.eps}
 \caption{Y2U}
 \end{subfigure}
-\caption{$x_{DL}$ is the dead layer thickness calculated using formula (\ref{eq:x_dl}). Cut to remove
-outliers was applied to this plot.}
+\caption{\xdllabel}
 \label{fig:x_dl}
 \end{figure}
 
@@ -317,6 +321,7 @@ that higher bias voltage should decrease size of depleted zone, i.e. decrease si
 On our plots (Fig.~\ref{fig:bc_vs_xdl}) we see some weak correlation between dead layer size and bias
 current.
 
+\newcommand\bcvsxdllabel{Bias current versus dead layer size dependency}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_hBiasCurrent_DeadLayerSize.eps}
@@ -326,7 +331,7 @@ current.
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_hBiasCurrent_DeadLayerSize.eps}
 \caption{Y2U}
 \end{subfigure}
-\caption{Bias current versus dead layer size dependency}
+\caption{\bcvsxdllabel}
 \label{fig:bc_vs_xdl}
 \end{figure}
 
@@ -337,6 +342,7 @@ alpha measurement, so correction to gain value should be applied.
 Additional correlation seen on plots \ref{bc_vs_gain-b1u} and \ref{bc_vs_gain-y1d} corresponds to
 special set of measurements with varied bias voltage.
 
+\newcommand\bcvsgainlabel{Bias current versus americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) dependency}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B1U/c_hBiasCurrent_AmGain.eps}
@@ -356,7 +362,7 @@ special set of measurements with varied bias voltage.
 \caption{Y2U}\label{bc_vs_gain-y2u}
 \end{subfigure}
 
-\caption{Bias current versus americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) dependency}
+\caption{\bcvsgainlabel}
 \label{fig:bc_vs_gain}
 \end{figure}
 
