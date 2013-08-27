@@ -120,6 +120,9 @@ detectors.}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B1U/c_chAmGain_by_day_B1U.eps}
 \caption{B1U}
 \end{subfigure}
+%
+\hfill
+%
 \begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y1D/c_chAmGain_by_day_Y1D.eps}
 \caption{Y1D}
@@ -129,6 +132,9 @@ detectors.}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chAmGain_by_day_B2D.eps}
 \caption{B2D}
 \end{subfigure}
+%
+\hfill
+%
 \begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chAmGain_by_day_Y2U.eps}
 \caption{Y2U}
@@ -224,16 +230,22 @@ equation~(\ref{eq:atten_linearity}).
 \end{equation}
 
 
-\begin{figure}[p]
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{figure}[htb]
+\centering
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{gfx/atten_1_over_5_ch06.eps}
+\caption{$\text{attenuator}=1/5$}
+\label{fig:atten_distrib_nominal}
+\end{subfigure}
+
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/atten_1_over_10_ch06.eps}
 \caption{$\text{attenuator}=1/10$}
 \end{subfigure}
-\begin{subfigure}[b]{0.3\textwidth}
-\includegraphics[width=\textwidth]{gfx/atten_1_over_5_ch06.eps}
-\caption{$\text{attenuator}=1/5$}
-\end{subfigure}
-\begin{subfigure}[b]{0.3\textwidth}
+%
+\hfill
+%
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/atten_1_over_3_ch06.eps}
 \caption{$\text{attenuator}=1/3$}
 \end{subfigure}
@@ -326,6 +338,7 @@ outliers was applied to this plot.}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chDeadLayerSize_by_day_B2D.eps}
 \caption{B2D}
 \end{subfigure}
+%
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chDeadLayerSize_by_day_Y2U.eps}
 \caption{Y2U}
@@ -333,6 +346,7 @@ outliers was applied to this plot.}
 \caption{\xdllabel}
 \label{fig:x_dl}
 \end{figure}
+
 
 \subsection{Bias current}
 
@@ -353,11 +367,12 @@ current.
 
 \newcommand\bcvsxdllabel{Bias current versus dead layer size dependency}
 \begin{figure}[p]
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_hBiasCurrent_DeadLayerSize.eps}
 \caption{B2D}
 \end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
+%
+\begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_hBiasCurrent_DeadLayerSize.eps}
 \caption{Y2U}
 \end{subfigure}
@@ -365,14 +380,18 @@ current.
 \label{fig:bc_vs_xdl}
 \end{figure}
 
-Much stronger correlation is seen when we compare bias current with gain (Fig.~\ref{fig:bc_vs_gain}).
-Bias current during polarization measurement can differ from the bias current in the time of
-alpha measurement, so correction to gain value should be applied.
+Much stronger correlation is seen when we compare bias current with gain
+(Fig.~\ref{fig:bc_vs_gain}).  Bias current during polarization measurement can
+differ from the bias current in the time of alpha measurement, so correction to
+gain value should be applied.
 
-Additional correlation seen on plots \ref{bc_vs_gain-b1u} and \ref{bc_vs_gain-y1d} corresponds to
-special set of measurements with varied bias voltage.
+Additional correlation seen on plots \ref{bc_vs_gain-b1u} and
+\ref{bc_vs_gain-y1d} corresponds to special set of measurements with varied bias
+voltage.
 
-\newcommand\bcvsgainlabel{Bias current versus americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) dependency}
+
+\newcommand\bcvsgainlabel{Bias current versus americium gain ($E_{\text{Am}} /
+\mu_{\text{Am}}$) dependency. The colors represent different detectors.}
 \begin{figure}[p]
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B1U/c_hBiasCurrent_AmGain.eps}
@@ -396,16 +415,21 @@ special set of measurements with varied bias voltage.
 \label{fig:bc_vs_gain}
 \end{figure}
 
+
 \begin{figure}[p]
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y1D/c_hBiasCurrent_BeamCurrent.eps}
 \caption{Y1D}
 \end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
+%
+\begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_hBiasCurrent_BeamCurrent.eps}
 \caption{Y2U}
 \end{subfigure}
-\caption{Bias current during alpha measurement versus beam current during the fill.}
+%
+\caption{The average bias current during an alpha measurement versus the average
+beam intensity in the preceding store. The colors represent different
+detectors.}
 \end{figure}
 
 
