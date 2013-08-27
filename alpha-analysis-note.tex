@@ -98,25 +98,28 @@ Conversion from ADC counts were performed by multiplying by this value.
 Information about gadolinium peak can tell us more about our calibration curve.
 For instance we can take gadolinium gain and linear two-point (americium and
 gadolinium) fit slope and compare them to americium gain
-(Fig.~\ref{fig:gain_relations}).
+(Figure~\ref{fig:gain_relations}).
 
 
-\newcommand\amgainlabel{Americium gain ($E_{\text{Am}} / \mu_{\text{Am}}$) time dependency}
+\newcommand\amgainlabel{Timeline of the detector gain as measured with
+$\alpha$-particles emitted by the \americium{} source. Colors represent individual
+detectors.}
 \begin{figure}[p]
-\begin{subfigure}[b]{0.5\textwidth}
+%
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B1U/c_chAmGain_by_day_B1U.eps}
 \caption{B1U}
 \end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y1D/c_chAmGain_by_day_Y1D.eps}
 \caption{Y1D}
 \end{subfigure}
 %
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/B2D/c_chAmGain_by_day_B2D.eps}
 \caption{B2D}
 \end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chAmGain_by_day_Y2U.eps}
 \caption{Y2U}
 \end{subfigure}
@@ -126,17 +129,27 @@ gadolinium) fit slope and compare them to americium gain
 \end{figure}
 
 
-\newcommand\gainrealationslabel{Comparison of different approaches to gain calculation (data for Y2D polarimeter).
-Cut to remove outliers was applied to this plot.}
+\newcommand\gainrealationslabel{Comparison of the effective detector gains
+calculated with either one or both $\alpha$-sources illustrated with the Y2D
+polarimeter. Outliers are not shown on the plots. Colors represent individual
+detectors.}
 \begin{figure}[p]
-\begin{subfigure}[b]{0.5\textwidth}
+%
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chGdGain_over_AmGain_by_day_Y2U.eps}
-\caption{Relation of gadolinium and americium gains}
+\caption{Timeline of the ratio of the gains, $g_\text{Gd}/g_\text{Am}$,
+independently measured with \gadolinium{} and \americium{} sources.}
 \end{subfigure}
-\begin{subfigure}[b]{0.5\textwidth}
+%
+\hfill
+%
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{gfx/run13_alpha_study/Y2U/c_chAmGdGain_over_AmGain_by_day_Y2U.eps}
-\caption{Relation of two-point (americium and gadolinium) linear fit slope and americium gain}
+\caption{Timeline of the ratio of the gain measured with both \americium{} and
+\gadolinium{} sources to the nominal gain measured with only the \americium{}
+source.}
 \end{subfigure}
+%
 \caption{\gainrealationslabel}
 \label{fig:gain_relations}
 \end{figure}
