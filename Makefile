@@ -1,6 +1,6 @@
 all : alpha-analysis-note.pdf
 
-alpha-analysis-note.pdf : alpha-analysis-note.tex $(wildcard gfx/*)
+alpha-analysis-note.pdf : alpha-analysis-note.tex $(wildcard gfx/*) $(wildcard gfx/*/*/*)
 	xelatex $<
 	xelatex $<
 
