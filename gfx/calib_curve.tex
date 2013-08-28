@@ -1,27 +1,33 @@
-\begin{pspicture}(0,0)(0.2\textwidth,0.2\textwidth)
+\setlength{\unitlength}{0.035\textwidth}
+\psset{unit=\unitlength}
 
-%yaxe
-\psStartPoint(0.4,0.0)\psVector(0.0,3.0)
-\rput(0.0,3.0){ADC}
+\begin{pspicture}(0,0)(10,10) % for debugging add [showgrid=true]
 
-%xaxe
-\psStartPoint(0.0,0.4)\psVector(3.0,0.0)
+% yaxe
+\psStartPoint(0.4,0)\psVector(0,10)
+\rput[r](0,10){ADC}
 
-%adc americium tick
-\psline(0.3,2.5)(0.5,2.5)
-\rput(0,2.5){$\mu_{Am}$}
+% xaxe
+\psStartPoint(0,0.4)\psVector(10,0)
+\rput[t](10,0){E}
 
-%adc gadolinium tick
-\psline(0.3,1.5)(0.5,1.5)
-\rput(0,1.5){$\mu_{Gd}$}
+% adc americium tick
+\psline(0.2,7)(0.6,7)
+\rput[r](0,7){$\mu_\text{Am}$}
 
-\psline(2.6,2.6)(0.5,0.0)
+% adc gadolinium tick
+\psline(0.2,4)(0.6,4)
+\rput[r](0,4){$\mu_\text{Gd}$}
 
-\psline(0.8,0.3)(0.8,0.5)
-\rput(1.1,0.2){$E_{DL}$}
-\psline(1.8,0.3)(1.8,0.5)
-\rput(1.8,0.2){$E_{Gd}$}
-\psline(2.5,0.3)(2.5,0.5)
-\rput(2.5,0.2){$E_{Am}$}
+\psline(2,0)(8,8)
+
+\psline(2.3,0.2)(2.3,0.6)
+\rput[lt](2.3,0){$E_\text{DL}$}
+
+\psline(5,0.2)(5,0.6)
+\rput[t](5,0){$E_\text{Gd}$}
+
+\psline(7.2,0.2)(7.2,0.6)
+\rput[t](7.2,0){$E_\text{Am}$}
 
 \end{pspicture}
