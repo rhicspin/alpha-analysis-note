@@ -80,36 +80,37 @@ package~\cite{cnipol_code}.
 
 \subsection{Energy calibration with $\alpha$-particles}
 
-For the purpose of this experiment the silicon strip detectors mentioned above
-are used as calorimeters which measure the energy of the slow carbons ions
-coming out from the fixed target. The energy of the recoil particles can be
-reconstructed from either the amplitude or the integral of the signal registered
-by the detector. In general we observe a very good correlation between the
-amplitude and the integral of the collected charge therefore, our choice of the
-former is only set by historical reasons. In the current setup our ability to
-calibrate the detector response to carbon ions with energies is very limited.
-For the energy calibration purposes we use low intensity \americium{} and
-\gadolinium{} radioactive sources emitting $\alpha$-particles with fixed
-energies of $E_{\text{Am}} = 5.486~\text{MeV}$ and $E_{\text{Gd}} =
+For the purpose of polarization measurement the silicon strip detectors
+mentioned above are used as calorimeters which measure the energy of the slow
+carbons ions coming from the fixed target. The energy of the recoil particles
+can be reconstructed from either the amplitude or the integral of the signal
+registered by the detector. In general we observe a very good correlation
+between the amplitude and the integral of the collected charge therefore, our
+choice of the former is only set by historical reasons. In the current setup our
+ability to calibrate the detector response to carbon ions with known energies is
+very limited. For the energy calibration purposes we use low intensity
+\americium{} and \gadolinium{} radioactive sources emitting $\alpha$-particles
+with fixed energies of $E_{\text{Am}} = 5.486~\text{MeV}$ and $E_{\text{Gd}} =
 3.271~\text{MeV}$ respectively. The sources are put in the vacuum in the direct
 acceptance of the detectors. Currently two polarimeters, Y1D and B1U, are
-supplied with only \americium{} sources, while the other two, Y2U and B2D, have
-in addition \gadolinium{} sources installed inside the polarimeter chambers.
+supplied with only \americium{} sources, while the other two, Y2U and B2D, have,
+in addition, \gadolinium{} sources installed inside the polarimeter chambers.
 Prior to 2012 only the americium sources were available for calibration.
 
 The energy of the $\alpha$-particles is few times higher than that of the carbon
-ions reaching the detectors. Therefore the readout signal has to be reduced by
-means of attenuators by a factor of 5 to bring it back to the dynamic range
-where the amplitude can be digitized with the readout electronics. In the
-absence of the beam we observe clean peaks from the radioactive sources as shown
-in Figure~\ref{fig:atten_distrib_nominal}. The peaks are fit with a gaussian
+ions reaching the detectors. We reduce the readout signal by means of
+attenuators by a factor of 5 to bring it back to the range where the amplitude
+can be digitized by the readout electronics. In the absence of the beam we
+observe clean peaks from the radioactive sources as shown in
+Figure~\ref{fig:atten_distrib_nominal}. The peaks are fit with a gaussian
 function to find the mean of the distribution. The nominal detector gain is then
-defined as the ratio of the peak position, $\mu_{\text{Am}}$, to the
+defined as a ratio of the peak position, $\mu_{\text{Am}}$, to the
 $E_{\text{Am}}$ energy. This definition completely ignores possible energy
 losses outside of the active detector region. This limitation can be overcome to
-some extent by using the second $\alpha$-source. The slope of the calibration
-curve connecting the two sources effectively takes into account the unresponsive
-region of the detector.
+some extent by using a second $\alpha$-source. The slope of the calibration
+curve in this case connecting the two sources would effectively take into
+account the unresponsive region of the detector. This region is referred to as
+the {\it dead layer}, and we discuss it in the next section.
 
 Information about gadolinium peak can tell us more about our calibration curve.
 For instance we can take gadolinium gain and linear two-point (americium and
