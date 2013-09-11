@@ -211,11 +211,44 @@ are equal and we write:
 alpha peaks measured in ADC units, $E_\text{Am}$ and $E_\text{Gd}$ are the
 incident energies of $\alpha$-particles, and $E^\text{DL}_{Am}$ and
 $E^\text{DL}_{Gd}$ are the energy losses in the dead layer for the respective
-alpha sources. The rate at which $\alpha$-particles loose their energy in the
-detector changes with the penetration depth. As the dead layer is relatively
-thin we can assume that the particles do not loose a significant fraction of
-their initial energy and the stopping power is approximately constant over this
-range. With a linear approximation for the total losses we have:
+alpha sources.
+
+\begin{figure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{astar_plots/csda_range.eps}
+\caption{CSDA versus alpha particle energy}\label{subfig:csda_range}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{astar_plots/stopping_power.eps}
+\caption{Stopping power versus penetration depth}\label{subfig:stopping_power}
+\end{subfigure}
+\caption{}\label{fig:astar_plots}
+\end{figure}
+
+The rate at which $\alpha$-particles loose their energy in the
+detector changes with the penetration depth. The value of stopping power can
+be easily derrived from CSDA range values avaliable at \cite{astar_database}.
+\begin{quote}
+\emph{CSDA range:} a very close approximation to the average path length
+traveled by a charged particle as it slows down to rest, calculated in the
+continuous-slowing-down approximation. In this approximation, the rate of
+energy loss at every point along the track is assumed to be equal to the
+total stopping power. Energy-loss fluctuations are neglected. The CSDA
+range is obtained by integrating the reciprocal of the total stopping
+power with respect to energy.
+
+-- ASTAR Appendix: Significance of Calculated Quantities
+\end{quote}
+Original CSDA range data is displayed on Fig~\ref{fig:astar_plots}\ref{subfig:csda_range}.
+If we take CSDA range value for the $E=E_{\text{Am}}$ and $E=E_{\text{Gd}}$
+we will get maximal penetration depths $z^0_{\text{Am}}$, $z^0_{\text{Gd}}$.
+Penetration depth is then calculated as $z_i = z^0_i - CSDA\:range$.
+Stopping power $-\frac{dE}{dz_i}$ versus penetration depth can be seen
+on Fig.~\ref{fig:astar_plots}\ref{subfig:stopping_power}.
+As the dead layer is relatively thin (less than $2\text{ }\mu\text{m}$) alpha particles do not loose a
+significant fraction of their initial energy and the stopping power
+is approximately constant over this range. With a linear approximation for
+the total losses we have:
 
 \begin{equation}
 E^\text{DL}_\text{Am} \simeq x_\text{DL} \lambda_\text{Am} \qquad
