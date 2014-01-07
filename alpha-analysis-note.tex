@@ -415,18 +415,20 @@ coincide with polarization measurements.}
 \subsection{Linearity of the amplifiers}
 
 The signal generated in the detector propagates through several stages of
-amplification. The linearity of the downstream amplifiers can be simply checked
-by attenuating the signal in a place on the signal path preceding the
-amplification, and then compare the reduced final amplitude with the expected
-one. The shaper boards have a resistive divider with a multiplexer controlled by
+amplification. Linearity of the downstream amplifiers can be checked by
+attenuating the signal in a place on the signal path preceding the
+amplification, and then comparing the measured reduced amplitude with the
+expected one properly scaled by a known factor.
+
+The shaper boards have a resistive divider with a multiplexer controlled by
 software settings. For normal polarization measurements of sub-MeV carbon ions
 the on-board attenuator is set to 1, i.e. no signal attenuation. During regular
 alpha measurements the attenuator is set to $1/5$. In this study we check the
 other two attenuator settings of $1/10$ and $1/3$. The alpha peaks obtained with
 these attenuator settings are shown in Figure~\ref{fig:atten_distrib} and the
 mean values corresponding to the gaussian fits are listed in
-Table~\ref{table:atten}. Note that with the attenuator setting of $1/3$ the Am
-peak ends up in the overflow bin as the events are outside of the detector
+Table~\ref{table:atten}. Note that with the attenuator setting of $1/3$ the
+americium peak ends up in the overflow bin as the events are outside of the detector
 dynamic range. The cumulative effect of a possible non-linearity in the
 amplified signal is checked by using the trivial relation in which the mean of
 the peak is expected to scale with the attenuator settings:
