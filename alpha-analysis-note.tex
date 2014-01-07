@@ -506,14 +506,14 @@ or machine parameters have direct impact on the detectors.
 
 We observe a strong correlation between the gain and the bias current.
 This variation goes as high as $\approx 20-40\%$ on the operational bias current
-span (Figure~\ref{fig:bc_vs_gain}). We believe that some sort of correction for
-this should be introduced into the analysis. Implementing this is complicated by
-the fact that the bias current measurements are now done with period of 5 minutes.
-This was enough to determine bias current for 20 minute long alpha runs, but
-sweep polarization measurement takes only few seconds and it is known that
-bias current changes drastically during this time (Figure~\ref{fig:bc_jumping}).
-Our proposal here is that bias current measurements should be taken
-more often in the future.
+span (Figure~\ref{fig:bc_vs_gain}). We believe that the entire analysis
+may benefit from a correction addressing such time-dependant fluctuations.
+However, implementing it at the moment is not feasible due to
+the fact that the bias current measurements are taken with a period of five minutes.
+This is enough to determine the average bias current for 20-minute long alpha runs but
+a regular sweep polarization measurement takes only few seconds. It is not
+unusual for the bias current to change significantly just after the measurement (Figure~\ref{fig:bc_jumping}).
+We propose to have more frequent measurements of the detector bias current in the future.
 
 The presence of the two $\alpha$-sources in the polarimeters allowed us to find
 a correction for the effective detector gain by taking into account the energy
