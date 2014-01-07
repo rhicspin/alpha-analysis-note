@@ -403,6 +403,14 @@ beam intensity in the preceding store. The colors represent different
 detectors.}
 \end{figure}
 
+\begin{figure}[p]
+\center{
+\includegraphics[width=\textwidth]{gfx/bias_current.17384.yel1.png}
+}
+\caption{Bias current variation in Y1D detector during fill 17384. Some jumps
+coincide with polarization measurements.}
+\label{fig:bc_jumping}
+\end{figure}
 
 \subsection{Linearity of amplifiers}
 
@@ -497,6 +505,15 @@ the beam intensity but in further studies we plan to investigate if other beam
 or machine parameters have direct impact on the detectors.
 
 We observe a strong correlation between the gain and the bias current.
+This variation goes as high as $\approx 20-40\%$ on the operational bias current
+span (Fig. \ref{fig:bc_vs_gain}). We believe that some sort of correction for
+this should be introduced into the analysis. Implementing this is complicated by
+the fact that the bias current measurements are now done with period of 5 minutes.
+This was enough to determine bias current for 20 minute long alpha runs, but
+sweep polarization measurement takes only few seconds and it is known that
+bias current changes drastically during this time (Fig. \ref{fig:bc_jumping}).
+Our proposal here is that bias current measurements should be taken
+more often in the future.
 
 The presence of the two $\alpha$-sources in the polarimeters allowed us to find
 a correction for the effective detector gain by taking into account the energy
