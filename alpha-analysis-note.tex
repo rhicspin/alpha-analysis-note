@@ -17,6 +17,7 @@
 \usepackage{booktabs}
 \usepackage{pstricks}
 \usepackage{pstricks-add}
+\usepackage[noabbrev,capitalize]{cleveref}
 
 \newcommand\americium{${}^{241}$Am}
 \newcommand\gadolinium{${}^{148}$Gd}
@@ -76,7 +77,7 @@ This approach allowed us to track the changes in detector properties at a more
 precise level than before. Although we primarily focus on the Run~13 data we
 also analyzed the data from $\alpha$-calibration runs in Run~12. The results for
 Run~12 are based on much lower statistical samples and can be found in
-Appendix~\ref{sec:appendix_run12}. The analysis of the data was performed with
+\cref{sec:appendix_run12}. The analysis of the data was performed with
 the {\tt cnipol} package~\cite{cnipol_code}.
 
 
@@ -116,7 +117,7 @@ carbon ions reaching the detectors. We reduce the output signal by means of
 attenuators by a factor of five to bring it back to the range where the
 amplitude can be digitized by the readout electronics. In the absence of the
 beam we observe clean peaks from the radioactive sources as shown in
-Figure~\ref{fig:atten_distrib_nominal}. A gaussian function is fit to the peaks
+\cref{fig:atten_distrib_nominal}. A gaussian function is fit to the peaks
 to find the mean of the distribution. The nominal detector gain \gainAm{} is then
 defined as a ratio of the peak position, $\mu_{\text{Am}}$, to the
 $E_{\text{Am}}$ energy. This definition completely ignores possible energy
@@ -124,16 +125,16 @@ losses outside of the active detector region. This limitation can be overcome
 to some extent by using a second $\alpha$-source. With two sources the slope of
 a linear calibration curve effectively takes into account the unresponsive
 region of the detector as illustrated with a sketch in
-Figure~\ref{fig:calib_curve}. This region is referred to as the {\it dead
+\cref{fig:calib_curve}. This region is referred to as the {\it dead
 layer}, and we discuss it in the next section.
 
-Figure~\ref{fig:gainAm} shows how the \gainAm{} gain developed in time for all
+\Cref{fig:gainAm} shows how the \gainAm{} gain developed in time for all
 four p-Carbon polarimeters. From this we conclude that overall the gain was
 stable on a monthly scale with only few detectors showing up to 10\%
 instabilities in the gain. We also confirm an overall stability by looking at
 the ratio of the gain estimates in the polarimeters with an additional
 \gadolinium{} source. These quantities as a function of time are shown on
-Figure~\ref{fig:gain_relations}.
+\cref{fig:gain_relations}.
 
 
 \newcommand\amgainlabel{Time dependence of the detector gain $g_\text{Am}$ as
@@ -203,7 +204,7 @@ In our current model of the silicon detector the incident particles are assumed
 to pass through a region where the detector has zero response as a calorimeter,
 i.e. the dead layer. Adding a gadolinium alpha source to the setup allows us to
 put one more calibration point on our calibration curve (see
-Figure~\ref{fig:calib_curve}). With the points corresponding to the americium
+\cref{fig:calib_curve}). With the points corresponding to the americium
 and gadolinium sources we can estimate the thickness of this layer.
 
 The energy where the linear fit intersects the horizontal axis gives us an
@@ -250,11 +251,11 @@ with respect to energy. -- ASTAR Appendix: Significance of Calculated
 Quantities}
 
 The original CSDA range data for $\alpha$-particles is displayed in
-Figure~\ref{subfig:csda_range}. If we take CSDA range value for the
+\cref{subfig:csda_range}. If we take CSDA range value for the
 $E=E_{\text{Am}}$ and $E=E_{\text{Gd}}$ we will get maximal penetration depths
 $z^0_{\text{Am}}$, $z^0_{\text{Gd}}$.  Penetration depth is then calculated as
 $z_i = z^0_i - \text{CSDA\:range}$.  Stopping power $-\frac{dE}{dz_i}$ versus
-penetration depth can be seen in Figure~\ref{subfig:stopping_power}.
+penetration depth can be seen in \cref{subfig:stopping_power}.
 Our stopping power plot is consistent with the other plot derrived from
 the same ASTAR data using a different method\cite{schmidke_edep}.
 As the dead layer is relatively thin (less than $2\text{ }\mu\text{m}$)
@@ -270,9 +271,8 @@ E^\text{DL}_\text{Gd} \simeq x_\text{DL} \lambda_\text{Gd}
 
 \noindent
 with values for the stopping power $\lambda_\text{Am} = $ and $\lambda_\text{Gd}
-= $ taken from \cite{astar_database}. Combining (\ref{eq:gain_equality}) and
-(\ref{eq:linear_loss}) we obtain the following formula for the size of the dead
-layer:
+= $ taken from \cite{astar_database}. Combining \cref{eq:gain_equality,eq:linear_loss}
+we obtain the following formula for the size of the dead layer:
 
 \begin{equation}
 x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am}\lambda_{Gd}}
@@ -280,10 +280,10 @@ x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am
 \end{equation}
 
 The thickness of the dead layer thus extracted from the all available
-calibration runs in Run~13 are shown in Figure~\ref{fig:x_dl}. The average size
+calibration runs in Run~13 are shown in \cref{fig:x_dl}. The average size
 of the dead layer is estimated to be within 1 to 1.3 $\mu m$.
 
-\newcommand\edllabellabel{$E_{DL}$ (see \ref{fig:calib_curve}) is the missing
+\newcommand\edllabellabel{$E_{DL}$ (see \cref{fig:calib_curve}) is the missing
 energy value extracted from linear fit of the americium and gadolinium points.
 Cut to remove outliers was applied to this plot.}
 \begin{figure}[p]
@@ -322,7 +322,7 @@ outliers was applied to this plot.}
 
 % TODO: write something about how out bias current varies over time
 
-In Figures~\ref{fig:gain_relations}, \ref{fig:e_dl}, and \ref{fig:x_dl} there
+In \cref{fig:gain_relations,fig:e_dl,fig:x_dl} there
 are few measurements before and after the beam session showing much lower
 spread. This looks to be a result of some parameter variation due to beam
 pickup.
@@ -334,7 +334,7 @@ polarimeters, measurements were taken each five minutes. Values lie mostly in
 range from $-30$ to $0$~$\mu\text{A}$. It was interesting to see how this current
 affects calibration characteristics of our detector. For example, it is known
 that higher bias voltage should decrease size of depleted zone, i.e. decrease
-size of dead layer. On our plots (Figure~\ref{fig:bc_vs_xdl}) we see some weak
+size of dead layer. On our plots (\cref{fig:bc_vs_xdl}) we see some weak
 correlation between dead layer size and bias current.
 
 \newcommand\bcvsxdllabel{Bias current versus dead layer size dependency}
@@ -353,13 +353,12 @@ correlation between dead layer size and bias current.
 \end{figure}
 
 Much stronger correlation is seen when we compare bias current with gain
-(Figure~\ref{fig:bc_vs_gain}).  Bias current during polarization measurement can
+(\cref{fig:bc_vs_gain}).  Bias current during polarization measurement can
 differ from the bias current in the time of alpha measurement, so correction to
 gain value should be applied.
 
-Additional correlation seen on plots \ref{bc_vs_gain-b1u} and
-\ref{bc_vs_gain-y1d} corresponds to special set of measurements with varied bias
-voltage.
+Additional correlation seen on plots on \cref{bc_vs_gain-b1u,bc_vs_gain-y1d}
+corresponds to special set of measurements with varied bias voltage.
 
 
 \newcommand\bcvsgainlabel{Bias current versus americium gain ($E_{\text{Am}} /
@@ -426,9 +425,9 @@ software settings. For normal polarization measurements of sub-MeV carbon ions
 the on-board attenuator is set to 1, i.e. no signal attenuation. During regular
 alpha measurements the attenuator is set to $1/5$. In this study we check the
 other two attenuator settings of $1/10$ and $1/3$. The alpha peaks obtained with
-these attenuator settings are shown in Figure~\ref{fig:atten_distrib} and the
+these attenuator settings are shown in \cref{fig:atten_distrib} and the
 mean values corresponding to the gaussian fits are listed in
-Table~\ref{table:atten}. Note that with the attenuator setting of $1/3$ the
+\cref{table:atten}. Note that with the attenuator setting of $1/3$ the
 americium peak ends up in the overflow bin as the events are outside of the detector
 dynamic range. The cumulative effect of a possible non-linearity in the
 amplified signal is checked by using the trivial relation in which the mean of
@@ -464,7 +463,7 @@ $\frac{1}{3}$   & \small{atten\_1\_over\_3.yel2.alpha0}   & ---\hspace{20pt}  & 
 This effect relative to one of the attenuator settings is then simply defined as
 $\Delta l = \frac{\lambda_1 \mu_2}{\lambda_2 \mu_1} - 1$. For the three pairs
 of measurements we calculate very small deviations from the linear
-equation~(\ref{eq:atten_linearity}).
+\cref{eq:atten_linearity}.
 
 \begin{equation}
 \frac{154.9}{77.0 \times 2} - 1 = 0.6\%
@@ -509,18 +508,18 @@ or machine parameters have direct impact on the detectors.
 
 We observe a strong correlation between the gain and the bias current.
 This variation goes as high as $\approx 20-40\%$ on the operational bias current
-span (Figure~\ref{fig:bc_vs_gain}). We believe that the entire analysis
+span (\cref{fig:bc_vs_gain}). We believe that the entire analysis
 may benefit from a correction addressing such time-dependant fluctuations.
 However, implementing it at the moment is not feasible due to
 the fact that the bias current measurements are taken with a period of five minutes.
 This is enough to determine the average bias current for 20-minute long alpha runs but
 a regular sweep polarization measurement takes only few seconds. It is not
-unusual for the bias current to change significantly just after the measurement (Figure~\ref{fig:bc_jumping}).
+unusual for the bias current to change significantly just after the measurement (\cref{fig:bc_jumping}).
 We propose to have more frequent measurements of the detector bias current in the future.
 
 The presence of the two $\alpha$-sources in the polarimeters allowed us to find
 a correction for the effective detector gain by taking into account the energy
-lost in the dead layer. We find this correction (Figure~\ref{fig:gain_relations}) to be at $\approx 5\%$ level
+lost in the dead layer. We find this correction (\cref{fig:gain_relations}) to be at $\approx 5\%$ level
 with respect to the nominal calibration procedure with one radioactive source.
 In addition, we estimate the thickness of the effective dead layer to be
 $\approx 1.1\mu m$. This number significantly disagrees with the value extracted
@@ -534,7 +533,7 @@ Comparing the detector gains measured before and after the beam time we conclude
 that there was no significant radiation damage of the detectors.
 
 A similar study has been performed for the 2012 data. The corresponding plots
-can be found in Appendix~\ref{sec:appendix_run12}.
+can be found in \cref{sec:appendix_run12}.
 
 
 \clearpage
