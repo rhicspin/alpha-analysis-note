@@ -255,10 +255,13 @@ The original CSDA range data for $\alpha$-particles is displayed in
 \cref{subfig:csda_range}. If we take CSDA range value for the
 $E=E_{\text{Am}}$ and $E=E_{\text{Gd}}$ we will get maximal penetration depths
 $z^0_{\text{Am}}$, $z^0_{\text{Gd}}$.  Penetration depth is then calculated as
-$z_i = z^0_i - \text{CSDA\:range}$.  Stopping power $-\frac{dE}{dz_i}$ versus
-penetration depth can be seen in \cref{subfig:stopping_power}.
-Our stopping power plot is consistent with the other plot derrived from
-the same ASTAR data using a different method\cite{schmidke_edep}.
+$z_i = z^0_i - \text{CSDA\:range}$.  Stopping power $-\frac{dE}{dz_i}$ can be
+then derrived from $E$ vs $z_i$ points using simple numerical differentiation formula
+$\frac{df}{dx} = (f_{i+1} - f_i)/(x_{i+1} - x_i)$. The resulting plot for
+stopping power versus penetration depth can be seen in \cref{subfig:stopping_power}.
+This plot is consistent with the other plot of the same dependency, derrived from
+the data from the same ASTAR Database, but using a different method\cite{schmidke_edep}.
+
 As the dead layer is relatively thin (less than $2\text{ }\mu\text{m}$)
 $\alpha$-particles do not loose a significant fraction of their initial energy
 and the stopping power is approximately constant over this range. With a linear
