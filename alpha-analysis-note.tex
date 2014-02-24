@@ -117,8 +117,12 @@ carbon ions reaching the detectors. We reduce the output signal by means of
 attenuators by a factor of five to bring it back to the range where the
 amplitude can be digitized by the readout electronics. In the absence of the
 beam we observe clean peaks from the radioactive sources as shown in
-\cref{fig:atten_distrib_nominal}. A gaussian function is fit to the peaks
-to find the mean of the distribution. The nominal detector gain \gainAm{} is then
+\cref{fig:atten_distrib_nominal}. The peaks positions are determined using a
+gaussian function fit.
+
+Polarization values determined from the current offline analysis currently
+does not rely on any information about the \gadolinium{} peak during the
+calibration procedure. The nominal detector gain \gainAm{} is
 defined as a ratio of the peak position, $\mu_{\text{Am}}$, to the
 $E_{\text{Am}}$ energy. This definition completely ignores possible energy
 losses outside of the active detector region. This limitation can be overcome
@@ -514,15 +518,15 @@ This variation goes as high as $\approx 20-40\%$ on the operational bias current
 span (\cref{fig:bc_vs_gain}). We believe that the entire analysis
 may benefit from a correction addressing such time-dependant fluctuations.
 However, implementing it at the moment is not feasible due to
-the fact that the bias current measurements are taken with a period of five minutes.
+the fact that the bias current measurements are taken with a long period of five minutes.
 This is enough to determine the average bias current for 20-minute long alpha runs, but
 a regular sweep polarization measurement takes only few seconds. It is not
 unusual for the bias current to change significantly just after the measurement (\cref{fig:bc_jumping}).
-We propose to have more frequent measurements of the detector bias current in the future.
+We believe that it would be better to have more frequent bias current measurements in the future.
 
 The presence of the two $\alpha$-sources in the polarimeters allowed us to find
-a correction for the effective detector gain by taking into account the energy
-lost in the dead layer. We find this correction (\cref{fig:gain_relations}) to be at $\approx 5\%$ level
+a correction for the effective detector gain by taking into account dead layer
+energy losses. We find this correction (\cref{fig:gain_relations}) to be at $\approx 5\%$ level
 with respect to the nominal calibration procedure with one radioactive source.
 In addition, we estimate the thickness of the effective dead layer to be
 $\approx 1.1\mu m$. This number significantly disagrees with the value extracted
