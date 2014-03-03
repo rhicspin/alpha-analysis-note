@@ -3,18 +3,39 @@
 
 \begin{pspicture}(0,0)(10,10) % for debugging add [showgrid=true]
 
+\psset{linestyle=dashed,dash=5pt 6pt}
 \psline(1,5)(9,5)
-\rput[r](1,5){Det2}
-\rput[l](9,5){Det5}
+\rput[r](1,5){Det5 \quad}
+\rput[l](9,5){\quad Det2}
 
 %  2.17 = 5-cos(45)*4
 %  7.82 = 5+cos(45)*4
 \psline(2.17,2.17)(7.82,7.82)
-\rput[r](2.17,2.17){Det3}
-\rput[l](7.82,7.82){Det6}
+\rput[r](2.17,2.17){Det4 \quad}
+\rput[l](7.82,7.82){\quad Det1}
 
 \psline(2.17,7.82)(7.82,2.17)
-\rput[r](2.17,7.82){Det1}
-\rput[l](7.82,2.17){Det4}
+\rput[r](2.17,7.82){Det6 \quad}
+\rput[l](7.82,2.17){\quad Det3}
+\psset{linestyle=solid}
+
+\pscircle[linewidth=2pt,linecolor=blue](5,5){4}
+
+\psset{linewidth=5pt,linecolor=red}
+\psset{origin={1,5}}
+\psline(0,-0.5)(0,0.5)
+\psset{origin={9,5}}
+\psline(0,-0.5)(0,0.5)
+\psset{origin={2.17,2.17}}
+\psline(0.35,-0.35)(-0.35,0.35)
+\psset{origin={7.82,7.82}}
+\psline(0.35,-0.35)(-0.35,0.35)
+\psset{origin={7.82,2.17}}
+\psline(0.35,0.35)(-0.35,-0.35)
+\psset{origin={2.17,7.82}}
+\psline(0.35,0.35)(-0.35,-0.35)
+
+\psset{origin={5,5}}
+\psline[linewidth=2pt,linecolor=gray](0,-0.7)(0,0.7)
 
 \end{pspicture}
