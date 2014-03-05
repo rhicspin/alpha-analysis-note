@@ -1,0 +1,49 @@
+\setlength{\unitlength}{0.035\textwidth}
+\psset{unit=\unitlength}
+
+\begin{pspicture}(0,0)(20,5) % for debugging add [showgrid=true]
+
+\psset{linewidth=2pt,arrowscale=2}
+
+\newcommand\bluering{
+\psarc			(10,-15){18}{60}{90}
+\psarc[arrows=<-]	(10,-15){18}{75}{80}
+\psarc			(10,-15){19}{90}{120}
+\psarc[arrows=<-]	(10,-15){19}{105}{110}
+}
+
+\psset{linecolor=cyan,origin={-0.05,-0.05}}
+\bluering
+\psset{origin={0,0}}
+
+\psset{linecolor=blue}
+\bluering
+
+\newcommand\yellowring{
+\psarc			(10,-15){19}{60}{90}
+\psarc[arrows=->]	(10,-15){19}{75}{76}
+\psarc			(10,-15){18}{90}{120}
+\psarc[arrows=->]	(10,-15){18}{105}{106}
+}
+
+\psset{linecolor=orange,origin={-0.05,-0.05}}
+\yellowring
+\psset{origin={0,0}}
+
+\psset{linecolor=yellow}
+\yellowring
+
+\psset{linecolor=magenta,fillcolor=magenta}
+\pscircle*(10,3.5){0.85}
+\pscircle*(12.31,3.86){0.3}
+\pscircle*(7.69,3.86){0.3}
+\pscircle*(12.31,2.86){0.3}
+\pscircle*(7.69,2.86){0.3}
+
+\rput[c](10,4.8){HJet}
+\rput[c](12.31,4.6){Y2U}
+\rput[c](7.69,4.6){B1U}
+\rput[c](12.31,2.1){Y1D}
+\rput[c](7.69,2.1){B2D}
+
+\end{pspicture}
