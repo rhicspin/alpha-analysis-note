@@ -1,0 +1,17 @@
+language: python
+branches:
+  only:
+    - master
+env:
+  - secure: "QqKh1JOFGZmF9kZL4dTH6ZbIR6xGdiue1WEx9xi8VuLYyFJming7TuxVHWAjD5G4urBZdnWDrSSAHOTXXlT8RgiAsYlF9h1/zWr6oY75pfy7mhO9HP3bQODCGlQOaTpEGmHdoB1YSgDUZKR/Z46pJX68i47Vj0co9tOS5EaBDUE="
+before_script:
+  - sudo ./.raring-pinning.sh
+  - cat /etc/apt/sources.list
+  - sudo gpg --recv-key --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32
+  - sudo sh -c "gpg --export 3B4FE6ACC0B21F32 | apt-key add -"
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq aptitude
+  - sudo aptitude install -y --without-recommends texlive-xetex lmodern texlive-pstricks texlive-latex-extra latex-xcolor gnuplot
+  - pip install mwclient
+script:
+  - make && ./mw-upload.py
