@@ -30,7 +30,7 @@ babarStyle->SetStatColor(0);
 // set the paper & margin sizes
 babarStyle->SetPaperSize(20,26);
 babarStyle->SetPadTopMargin(0.08);
-babarStyle->SetPadRightMargin(0.05);
+babarStyle->SetPadRightMargin(0.23);
 babarStyle->SetPadBottomMargin(0.16);
 babarStyle->SetPadLeftMargin(0.13);
 
@@ -62,7 +62,7 @@ babarStyle->SetErrorX(0.001);
 // do not display any of the standard histogram decorations
 babarStyle->SetOptTitle(0);
 babarStyle->SetOptStat(0);
-babarStyle->SetOptFit(0);
+babarStyle->SetOptFit(1);
 
 // put tick marks on top and RHS of plots
 babarStyle->SetPadTickX(1);
