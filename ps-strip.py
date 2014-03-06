@@ -15,6 +15,8 @@ def ps_strip(filename):
 	try:
 		fp = open(filename, 'w')
 		for line in contents:
+			if line.startswith("%%CreationDate: "):
+				continue
 			if line.startswith("%%BeginResource: "):
 				print "stripped %s;" % line[len("%%BeginResource: "):].rstrip("\n")
 				skipmode = True
