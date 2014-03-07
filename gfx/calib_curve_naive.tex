@@ -1,0 +1,33 @@
+\setlength{\unitlength}{0.075\textwidth}
+\psset{unit=\unitlength}
+
+\begin{pspicture}(0,0)(12,11) % for debugging add [showgrid=true]
+
+% yaxe
+\psStartPoint(2.4,1)\psVector(0,10)
+\rput[r](2,10){ADC}
+
+% xaxe
+\psStartPoint(2,1.4)\psVector(10,0)
+\rput[t](11,1){E}
+
+% adc americium tick
+\psline(2.2,8)(2.6,8)
+\rput[r](2,8){$\mu_\text{Am}$}
+
+% adc gadolinium tick
+\psline(2.2,5)(2.6,5)
+\rput[r](2,5){$\mu_\text{Gd}$}
+
+\psline(4,1)(10,9)
+
+\psline(4.3,1.2)(4.3,1.6)
+\rput[lt](4.3,1){$E_\text{DL}$}
+
+\psline(7,1.2)(7,1.6)
+\rput[t](7,1){$E_\text{Gd}$}
+
+\psline(9.2,1.2)(9.2,1.6)
+\rput[t](9.2,1){$E_\text{Am}$}
+
+\end{pspicture}

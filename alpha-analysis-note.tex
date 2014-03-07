@@ -85,15 +85,28 @@ The analysis of the data was performed with the {\tt cnipol} package~\cite{cnipo
 
 \subsection{Energy calibration with $\alpha$-particles}
 
-\begin{wrapfigure}[18]{r}{0.40\textwidth}
-\vspace{-\baselineskip} % move up by one standard line
-\begin{flushright}
-\input{gfx/calib_curve.tex}
-\end{flushright}
-\caption{First order calibration curve fitting points corresponding to the two
-$\alpha$ sources.}
-\label{fig:calib_curve}
-\end{wrapfigure}
+\begin{figure}[p]
+\begin{subfigure}[t]{0.49\textwidth}
+\input{gfx/calib_curve_naive.tex} \caption{Missing energy $E_\text{DL}$ can be
+defined in the approximation of energy deposition independent of the particle
+energy.}
+\label{fig:calib_curve_naive}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.49\textwidth}
+\input{gfx/calib_curve_smart.tex}
+\caption{Dead layer size $x_\text{DL}$ is a difference between the distance
+that particle traveled trough the matter $x_\text{total}$ and a distance on
+which the deposited energy was being registered by the detector
+$x_\text{registered}$.  Gain relation $g=g_\text{Am}=g_\text{Gd}$ is assumed.
+The linear regression gives us \cref{eq:x_dl}.  Note that the result does not
+depend on the value of gain $g$.}
+\label{fig:calib_curve_smart}
+\end{subfigure}
+\caption{Definition of $E_\text{DL}$ and $x_\text{DL}$ in terms of linear regression
+over two points corresponding to two alpha sources.}
+\label{fig:calib_curves}
+\end{figure}
 
 For the purpose of polarization measurement we need to measure the energy of
 the slow carbons ions coming from the fixed target. The calorimetry is done by
@@ -128,7 +141,7 @@ losses before the sensitive detector region. This limitation can be overcome
 to some extent by using a second $\alpha$-source. With two sources the slope of
 a linear calibration curve effectively takes into account the unresponsive
 region of the detector as illustrated with a sketch in
-\cref{fig:calib_curve}. This region is referred to as the {\it dead
+\cref{fig:calib_curves}. This region is referred to as the {\it dead
 layer}, and we discuss it in the next section.
 
 \Cref{fig:gainAm} shows how the \gainAm{} gain developed in time for all
@@ -240,7 +253,7 @@ In our current model of the silicon detector the incident particles are assumed
 to pass through a region where the detector has zero response as a calorimeter,
 i.e. the dead layer. Adding a gadolinium alpha source to the setup allows us to
 put one more calibration point on our calibration curve (see
-\cref{fig:calib_curve}). With the points corresponding to the americium
+\cref{fig:calib_curves}). With the points corresponding to the americium
 and gadolinium sources we can estimate the thickness of this layer.
 
 The energy where the linear fit intersects the horizontal axis gives us an
@@ -320,11 +333,14 @@ x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am
 \label{eq:x_dl}
 \end{equation}
 
+This formula could be also obtained as a linear regression fit of the plot at
+\cref{fig:calib_curve_smart}.
+
 The thickness of the dead layer thus extracted from the all available
 calibration runs in Run~13 are shown in \cref{fig:x_dl}. The average size
 of the dead layer is estimated to be within 80 to 100 $\mu g/cm^2$.
 
-\newcommand\edllabellabel{$E_{DL}$ (see \cref{fig:calib_curve}) is the missing
+\newcommand\edllabellabel{$E_{DL}$ (see \cref{fig:calib_curve_naive}) is the missing
 energy value extracted from linear fit of the americium and gadolinium points.
 Cut to remove outliers was applied to this plot.}
 \begin{figure}

@@ -1,0 +1,33 @@
+\setlength{\unitlength}{0.075\textwidth}
+\psset{unit=\unitlength}
+
+\begin{pspicture}(0,0)(12,11) % for debugging add [showgrid=true]
+
+% yaxe
+\psStartPoint(2.4,1)\psVector(0,10)
+\rput[r](2,10){$x_\text{registered}$}
+
+% xaxe
+\psStartPoint(2,1.4)\psVector(10,0)
+\rput[t](11,1){$x_\text{total}$}
+
+% adc americium tick
+\psline(2.2,8)(2.6,8)
+\rput[r](2,8){$\frac{\mu_\text{Am}}{g \cdot \lambda_\text{Am}}$}
+
+% adc gadolinium tick
+\psline(2.2,5)(2.6,5)
+\rput[r](2,5){$\frac{\mu_\text{Gd}}{g \cdot \lambda_\text{Gd}}$}
+
+\psline(4,1)(10,9)
+
+\psline(4.3,1.2)(4.3,1.6)
+\rput[lt](4.3,1){$x_\text{DL}$}
+
+\psline(7,1.2)(7,1.6)
+\rput[t](7,1){$\frac{E_\text{Gd}}{\lambda_\text{Gd}}$}
+
+\psline(9.2,1.2)(9.2,1.6)
+\rput[t](9.2,1){$\frac{E_\text{Am}}{\lambda_\text{Am}}$}
+
+\end{pspicture}
