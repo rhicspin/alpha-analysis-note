@@ -2,3 +2,4 @@
 *.log
 *.out
 *.pdf
+astar_plots/*.eps
