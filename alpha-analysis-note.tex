@@ -441,10 +441,11 @@ outliers was applied to this plot.}
 
 % TODO: write something about how out bias current varies over time
 
-In \cref{fig:gain_relations,fig:e_dl,fig:x_dl} there are few measurements
-taken before and after run13 showing much lower spread. This suggests that the
-variation might be beam induced: for example, the beam may create charge on the
-parts of the detectors and affect alpha measurements after the beam is gone.
+In \cref{fig:gain_relations,fig:e_dl,fig:x_dl} there are few measurements taken
+before and after run13. When comparing these measurements with the measurements
+taken during the run we see that later are showing much higher spread.  We
+investigate this abnormality by looking at correlations with other
+detector work parameters.
 
 One of the work parameters of our silicon detector that we measure is a bias
 current -- current constantly flowing through detector (in this case -- set of
@@ -471,10 +472,15 @@ correlation between dead layer size and bias current.
 \label{fig:bc_vs_xdl}
 \end{figure}
 
-Much stronger correlation is seen when we compare bias current with gain
-(\cref{fig:bc_vs_gain}).  Bias current during polarization measurement can
-differ from the bias current in the time of alpha measurement, so correction to
-the gain value should be applied.
+Much stronger correlation is seen when we compare the bias current with the
+gain (\cref{fig:bc_vs_gain}). When processing polarization measurement we take
+gain value to be equal to the alpha gain of the corresponding alpha calibration
+measurement.  As we see in \cref{fig:bc_jumping} the bias current may change
+very quickly during the fill.  This way the gain value itself should vary over
+time along with the bias current change.  If we know the bias current at the
+moment of carbon measurement and the bias current during the alpha measurement
+we can make a correction for that gain change.
+
 
 \newcommand\bcvsgainlabel{Bias current versus americium gain ($E_{\text{Am}} /
 \mu_{\text{Am}}$) dependency. The colors represent different detectors.}
@@ -504,6 +510,11 @@ corresponds to special set of measurements with varied bias voltage.
 \label{fig:bc_vs_gain}
 \end{figure}
 
+We also tried to see if the variation of the bias current correlates with the
+beam properties. To do that we took average of the beam intensity values at a
+plateau (values $> 50 \cdot 10^{11}$ protons) of the fill happened before the
+alpha measurement. That value was then plotted versus the bias current as
+shown at \cref{fig:bc_vs_beamcurrent}.
 
 \begin{figure}
 \begin{subfigure}[t]{0.5\textwidth}
