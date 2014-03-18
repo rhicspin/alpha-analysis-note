@@ -326,7 +326,7 @@ E^\text{DL}_\text{Gd} \simeq x_\text{DL} \lambda_\text{Gd}
 with values for the stopping power $\lambda_\text{Am} = 140\text{ keV/}\mu m$
 and $\lambda_\text{Gd} = 190\text{ keV/}\mu m$ taken from the plot on
 \cref{subfig:stopping_power} at $z=0$. Combining \cref{eq:gain_equality,eq:linear_loss}
-we obtain the following formula for the size of the dead layer:
+we obtain the following formula for the size of the effective dead layer:
 
 \begin{equation}
 x_{DL} = \frac{\mu_{Gd} E_{Am} - \mu_{Am} E_{Gd}}{\mu_{Gd}\lambda_{Am} - \mu_{Am}\lambda_{Gd}}
@@ -338,7 +338,7 @@ This formula could be also obtained as a linear regression fit of the plot at
 
 The thickness of the dead layer thus extracted from the all available
 calibration runs in Run~13 are shown in \cref{fig:x_dl}. The average size
-of the dead layer is estimated to be within 80 to 100 $\mu g/cm^2$.
+of the effective dead layer is estimated to be within 80 to 100 $\mu g/cm^2$.
 
 \newcommand\edllabellabel{$E_{DL}$ (see \cref{fig:calib_curve_naive}) is the missing
 energy value extracted from linear fit of the americium and gadolinium points.
@@ -358,7 +358,7 @@ Cut to remove outliers was applied to this plot.}
 \label{fig:e_dl}
 \end{figure}
 
-\newcommand\xdllabel{$x_{DL}$ is the dead layer thickness calculated using formula (\ref{eq:x_dl}). Cut to remove
+\newcommand\xdllabel{$x_{DL}$ is the effective dead layer thickness calculated using formula (\ref{eq:x_dl}). Cut to remove
 outliers was applied to this plot.}
 \begin{figure}
 \begin{subfigure}[b]{0.5\textwidth}
@@ -454,8 +454,8 @@ polarimeters, measurements were taken each five minutes. Values lie mostly in
 range from $-30$ to $0$~$\mu\text{A}$. It was interesting to see how this current
 affects calibration characteristics of our detector. For example, it is known
 that higher bias voltage should decrease size of depleted zone, i.e. decrease
-size of dead layer. On our plots (\cref{fig:bc_vs_xdl}) we see some weak
-correlation between dead layer size and bias current.
+size of effective dead layer. On our plots (\cref{fig:bc_vs_xdl}) we see some weak
+correlation between effective dead layer size and bias current.
 
 \newcommand\bcvsxdllabel{Bias current versus dead layer size dependency.}
 \begin{figure}
@@ -653,9 +653,9 @@ energy losses. We find this correction (\cref{fig:gain_relations}) to be at $\ap
 with respect to the nominal calibration procedure with one radioactive source.
 In addition, we estimate the thickness of the effective dead layer to be
 $\approx 80\text{ }\mu g/cm^2$. This number disagrees with the value extracted
-from the nominal ``banana'' fit to the carbon data where the dead layer is
+from the nominal ``banana'' fit to the carbon data where the effective dead layer is
 estimated to be $\approx 35\text{ }\mu g/cm^2$. A possible explanation for this discrepancy
-is that we overestimate the dead layer thickness as measured with
+is that we overestimate the effective dead layer thickness as measured with
 $\alpha$-particles by not taking into account the extra material of the protective
 coating of the alpha source.
 
