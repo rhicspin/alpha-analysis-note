@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rhicspin/alpha-analysis-note.png?branch=master)](https://travis-ci.org/rhicspin/alpha-analysis-note)
+[![Build Status](https://travis-ci.org/rhicspin/alpha-analysis-note.svg?branch=master)](https://travis-ci.org/rhicspin/alpha-analysis-note)
 
 [View PDF](https://wiki.bnl.gov/rhicspin/File:PC-alpha-analysis-note.pdf)
 
