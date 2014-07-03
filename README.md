@@ -11,6 +11,6 @@ malpha plots generation process goes this way:
     export CNIPOL_RESULTS_DIR=/tmp/ # path where you put asym utility output files
     mkdir -p ~/rootmacros/styles/
     ln -s `pwd`/style_malpha.C ~/rootmacros/styles/
-    mkdir ${CNIPOL_RESULTS_DIR}/run13_alpha_study
-    ln -s `pwd`/run13_alpha_study ${CNIPOL_RESULTS_DIR}/run13_alpha_study/images
-    malpha -m run13_alpha_study -o /dev/null -g
+    mkdir ${CNIPOL_RESULTS_DIR}/run13_alpha_study_novoltagevariation
+    ln -s `pwd`/run13_alpha_study_novoltagevariation ${CNIPOL_RESULTS_DIR}/run13_alpha_study_novoltagevariation/images
+    malpha -m run13_alpha_study_novoltagevariation -o /dev/null -g
