@@ -4,13 +4,12 @@ astar_plots :
 	$(MAKE) -C astar_plots
 
 alpha-analysis-note.pdf : alpha-analysis-note.tex $(wildcard gfx/*) $(wildcard gfx/*/*/*) astar_plots
-	xelatex -halt-on-error $<
-	xelatex -halt-on-error $<
+	latexmk -pdf -pdflatex="xelatex -halt-on-error" -use-make $<
 
 .PHONY : clean cleanall ps-strip astar_plots
 
 clean :
-	rm alpha-analysis-note.aux  alpha-analysis-note.log  alpha-analysis-note.out
+	latexmk -CA
 	$(MAKE) -C astar_plots clean
 
 cleanall : clean

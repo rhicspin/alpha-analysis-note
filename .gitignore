@@ -2,4 +2,6 @@
 *.log
 *.out
 *.pdf
+*.fdb_latexmk
+*.fls
 astar_plots/*.eps
