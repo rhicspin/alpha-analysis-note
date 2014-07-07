@@ -475,13 +475,20 @@ correlation between effective dead layer size and bias current.
 \end{figure}
 
 Much stronger correlation is seen when we compare the bias current with the
-gain (\cref{fig:bc_vs_gain}). When processing polarization measurement we take
-gain value to be equal to the alpha gain of the corresponding alpha calibration
-measurement.  As we see in \cref{fig:bc_jumping} the bias current may change
-very quickly during the fill.  This way the gain value itself should vary over
-time along with the bias current change.  If we know the bias current at the
-moment of carbon measurement and the bias current during the alpha measurement
-we can make a correction for that gain change.
+gain (\cref{fig:bc_vs_gain}). We use this correlation to produce linear model
+to correct our alpha gains to their values at zero bias current. The resulting
+plot is presented at \cref{fig:gainAmCorrected}. Unlike original plot at
+\cref{fig:gainAmCorrected} this one shows lower spread and small yet notable
+decline over time.
+
+We assume that presented dependence of alpha gain on bias current holds true
+during the sweep measurements. Study of the dependence of carbon energy
+spectrum slope over bias current
+\cite{schmidke_alpha_vs_carbon}\cite{dkalinkin_bc_vs_carbongain} shows that
+this is likely to be true in our case. As we see in \cref{fig:bc_jumping} the
+bias current may change very quickly during the fill, what should cause changes
+to the effective alpha gain.  Correction similar to the one described in the
+previous paragraph should be then applied.
 
 
 \newcommand\bcvsgainlabel{Bias current versus americium gain ($\mu_{\text{Am}} /
@@ -510,6 +517,37 @@ Outliers seen on plots on Subfigures (\subref{bc_vs_gain-b1u}) and (\subref{bc_v
 correspond to special set of measurements with varied bias voltage.
 }
 \label{fig:bc_vs_gain}
+\end{figure}
+
+\begin{figure}
+%
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study_novoltagevariation/B1U/c_chAmGainCorrected_by_day_B1U.eps}
+\caption{B1U}
+\end{subfigure}
+%
+\hfill
+%
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study_novoltagevariation/Y1D/c_chAmGainCorrected_by_day_Y1D.eps}
+\caption{Y1D}
+\end{subfigure}
+%
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study_novoltagevariation/B2D/c_chAmGainCorrected_by_day_B2D.eps}
+\caption{B2D}
+\end{subfigure}
+%
+\hfill
+%
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{gfx/run13_alpha_study_novoltagevariation/Y2U/c_chAmGainCorrected_by_day_Y2U.eps}
+\caption{Y2U}
+\end{subfigure}
+%
+\caption{Time dependence of the detector gain $g_\text{Am}$ that was corrected
+to zero bias current using the slope from \cref{fig:bc_vs_gain}.}
+\label{fig:gainAmCorrected}
 \end{figure}
 
 We also tried to see if the variation of the bias current correlates with the
@@ -824,6 +862,16 @@ ASTAR database. Stopping power and range tables for helium atoms:
 B. Schmidke,
 \emph{Carbon \& alpha E-deposition in Si}, July 8 (special meeting)
 \url{https://wiki.bnl.gov/rhicspin/upload/7/72/Schmidke_Special_meeting_08.07.13.pdf}
+
+\bibitem{schmidke_alpha_vs_carbon}
+B. Schmidke,
+\emph{Alpha gain <-> carbon gain}, August 16 (special meeting)
+\url{https://wiki.bnl.gov/rhicspin/upload/f/fe/Schmidke_Special_meeting_16.08.13.pdf}
+
+\bibitem{dkalinkin_bc_vs_carbongain}
+D. Kalinkin,
+\emph{Carbon gain vs. Ibias} (see slide 7), August 16 (special meeting)
+\url{https://wiki.bnl.gov/rhicspin/upload/5/5f/Dkalinkin_16-08-13.pdf}
 
 \bibitem{cnipol_web_rundb}
 RHIC polarimetry results: \url{http://www.phy.bnl.gov/cnipol/rundb/}
