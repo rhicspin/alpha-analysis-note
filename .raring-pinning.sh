@@ -2,7 +2,7 @@
 
 echo 'APT::Default-Release "precise";' > /etc/apt/apt.conf.d/01ubuntu
 
-echo 'deb http://archive.ubuntu.com/ubuntu raring main universe' >> /etc/apt/sources.list
+echo 'deb http://old-releases.ubuntu.com/ubuntu raring main universe' >> /etc/apt/sources.list
 
 cat >> /etc/apt/preferences << EOL
 Package: tex*
