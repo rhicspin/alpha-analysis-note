@@ -480,15 +480,6 @@ to correct our alpha gains to their values at zero bias current. The resulting
 plot is presented at \cref{fig:gainAmCorrected}. Unlike original plot at
 \cref{fig:gainAmCorrected} this one shows much lower spread.
 
-We assume that presented dependence of alpha gain on bias current holds true
-during the sweep measurements. Study of the dependence of carbon energy
-spectrum slope over bias current
-\cite{schmidke_alpha_vs_carbon}\cite{dkalinkin_bc_vs_carbongain} shows that
-this is likely to be true in our case. As we see in \cref{fig:bc_jumping} the
-bias current may change very quickly during the fill, what should cause changes
-to the effective alpha gain.  Correction similar to the one described in the
-previous paragraph should be then applied.
-
 
 \newcommand\bcvsgainlabel{Bias current versus americium gain ($\mu_{\text{Am}} /
 E_{\text{Am}}$) dependency. The colors represent different detectors.}
@@ -695,6 +686,142 @@ of measurements we calculate very small deviations from the linear
 \end{figure}
 
 
+\section{Implementing the bias current correction}\label{sec:bc_corr_impl}
+
+\newcommand\stdwindow{$\left[ \text{starttime}, \text{endtime} \right]$}
+\newcommand\prewindow{$\left[ \text{starttime}-5\text{ min}, \text{starttime} \right]$}
+\newcommand\postwindow{$\left[ \text{endtime}, \text{endtime}+5\text{ min} \right]$}
+\newcommand\implwindow{$\left[ \text{starttime}, \max\left(\text{endtime}, \text{starttime}+500\text{ sec}\right) \right]$}
+
+\begin{figure}[p]
+\begin{subfigure}[t]{0.47\textwidth}%
+\vspace{-25pt}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/B1U/c_hSweepBC_vs_PreSweepBC.eps}%
+\vspace{-5pt}%
+\caption{B1U}%
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.47\textwidth}%
+\vspace{-25pt}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/Y1D/c_hSweepBC_vs_PreSweepBC.eps}%
+\vspace{-5pt}%
+\caption{Y1D}%
+\end{subfigure}%
+\newline%
+\begin{subfigure}[t]{0.47\textwidth}%
+\vspace{-3pt}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/B2D/c_hSweepBC_vs_PreSweepBC.eps}%
+\vspace{-5pt}%
+\caption{B2D}%
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.47\textwidth}%
+\vspace{-3pt}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/Y2U/c_hSweepBC_vs_PreSweepBC.eps}%
+\vspace{-5pt}%
+\caption{Y2U}%
+\end{subfigure}%
+\vspace{-2pt}%
+\caption{Correlation of bias currents that fall in time windows \stdwindow\ and \prewindow .}%
+\label{fig:presweep_bc_corr}
+\end{figure}
+
+
+\begin{figure}[p]
+\begin{subfigure}[t]{0.47\textwidth}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/B1U/c_hSweepBC_vs_PostSweepBC.eps}%
+\vspace{-5pt}%
+\caption{B1U}%
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.47\textwidth}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/Y1D/c_hSweepBC_vs_PostSweepBC.eps}%
+\vspace{-5pt}%
+\caption{Y1D}%
+\end{subfigure}%
+\newline%
+\begin{subfigure}[t]{0.47\textwidth}%
+\vspace{-3pt}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/B2D/c_hSweepBC_vs_PostSweepBC.eps}%
+\vspace{-5pt}%
+\caption{B2D}%
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.47\textwidth}%
+\vspace{-3pt}%
+\includegraphics[width=\textwidth]{gfx/bc_corr/Y2U/c_hSweepBC_vs_PostSweepBC.eps}%
+\vspace{-5pt}%
+\caption{Y2U}%
+\end{subfigure}%
+\vspace{-2pt}%
+\caption{Correlation of bias currents that fall in time windows \stdwindow\ and \postwindow .}%
+\label{fig:postsweep_bc_corr}
+\end{figure}
+
+Alpha gain is an important quantity that is used in processing sweep
+polarization measurements to convert ADC values to the energy scale.  Each
+sweep measurement has an assigned alpha measurement from which alpha gain value
+is taken from.  When looking at available alpha measurements, we observe a
+strong correlation between the gain and the detector bias current.  We can
+assume that the same gain dependency is also held for regular polarization
+measurements. The later is in agreement with observation of carbon gains vs
+bias current calibration
+\cite{schmidke_alpha_vs_carbon}\cite{dkalinkin_bc_vs_carbongain}.  It is also
+known that bias currents can vary drastically during the fill
+(\cref{fig:bc_jumping}). This suggests that an effective gain value in the
+sweep measurement may differ from the it's value in corresponding alpha
+measurement, if bias current changed between those two measurements.
+This variation may go as high as $\approx 20-40\%$ on the operational bias current
+span (\cref{fig:bc_vs_gain}). Knowing bias current during sweep and alpha
+measurement one can apply a correction to alpha gain to obtain an effective
+gain for the sweep measurement.
+
+The main problem that one faces when implementing the correction is the low
+bias current sampling rate. For the most of the run 13 the period of these
+measurements was equal to 5 minutes. At the same time the most common
+polarization measurement -- sweep measurement normally takes no more than a
+couple minutes.  Because of that there is a big chance that for many
+polarization measurements there will be no bias current measurement taken
+during them. To overcome this we must soften our criteria of timewise selection
+of the appropriate bias current measurement. In our study we evaluated two
+schemes:
+
+\begin{enumerate}
+\item \label{item:pre} Extending the query window backward in time.
+\item \label{item:post} Extending the query window forward in time.
+\end{enumerate}
+
+To study option \ref{item:pre} we looked at correlation between bias current
+measurement taken during the sweep measurements (where available) with the
+previous measurement (\cref{fig:presweep_bc_corr}).  For option \ref{item:post}
+the correlation has been plotted against next available measurement
+(\cref{fig:postsweep_bc_corr}).  The correlation for the later option show
+lower spread. In other words, the value bias current during the sweep
+measurement is closer to it's value right after the measurement than to the
+value right before it. For our purposes we prefer the value that is closer to
+the value during the sweep measurement, so we extend bias current query window
+forward in time. In our particular implementation we query bias current values
+in the time window \implwindow\ ($\text{starttime}$ and $\text{endtime}$ denote
+measurement's start and end timestamps). That way our query window is never less
+than $8.3$ minutes and always contains at least one bias current measurement.
+
+In our approach we utilize following correction formula:
+\begin{equation}
+g_{\text{sweep}} = g_{\text{alpha}} + \frac{dg}{dI} (I_{\text{sweep}} - I_{\text{alpha}})
+\end{equation}
+where $\frac{dg}{dI}$ is a slope taken from linear fit of correlation from
+\cref{fig:bc_vs_gain} for the detector, $I_i$, $g_i$ -- apropriate bias
+currents and gains for the channel.  In current implementation this calculation is split in two
+steps: First, when processing alpha measurements channel calibration, we
+calculate gain corrected to zero bias current as $g_{I=0} = g_{\text{alpha}} -
+\frac{dg}{dI} I_{\text{alpha}}$ and store it into \texttt{fZeroBiasGain} field
+of channel's \texttt{ChannelCalib} structure.  Second, when processubg sweep
+measurement, we continue calculation on the calibration set inherited from
+alpha file processing step and obtain our effective gain as $g_{\text{sweep}} =
+g_{I=0} + \frac{dg}{dI} I_{\text{sweep}}$, storing it in the
+\texttt{fEffectiveGain} field for subsequent use in event processing.
+For more implementation details see \cite{bc_corr_commit}.
+
 \section{Conclusions}
 
 Based on the analysis presented in this note we establish that the changes in
@@ -704,16 +831,11 @@ the beam intensity (\cref{fig:bc_vs_beamcurrent}) but in further studies we
 plan to investigate if other beam or machine parameters have direct impact on
 the detectors.
 
-We observe a strong correlation between the gain and the bias current.
-This variation goes as high as $\approx 20-40\%$ on the operational bias current
-span (\cref{fig:bc_vs_gain}). We believe that the entire analysis
-may benefit from a correction addressing such time-dependant fluctuations.
-However, implementing it at the moment is not feasible due to
-the fact that the bias current measurements are taken only once each five minutes.
-This is enough to determine the average bias current for 20-minute long alpha runs, but
-a regular sweep polarization measurement takes only a few seconds. It is not
-unusual for the bias current to change significantly simultaneously with the sweep measurement (\cref{fig:bc_jumping}).
-We believe that it would be better to have more frequent bias current measurements in the future.
+We observed noticeable changes in detector bias current during fills of run 13.
+These changes affected detector gain values and lead to a mismatch between
+gain value measured during calibration and effective gain during polarization
+measurements. A correction based for this effect was implemented in
+the analysis code to be applied in run 13 analysis (see \cref{sec:bc_corr_impl}).
 
 The presence of the two $\alpha$-sources in the polarimeters allowed us to find
 a correction for the effective detector gain by taking into account dead layer
@@ -902,6 +1024,10 @@ D. Kalinkin,
 
 \bibitem{cnipol_web_rundb}
 RHIC polarimetry results: \url{http://www.phy.bnl.gov/cnipol/rundb/}
+
+\bibitem{bc_corr_commit}
+D. Kalinkin, commit \texttt{848ceac4dcc15b2805552b721f033b9d3852e0f6} in cnipol repository
+\url{https://github.com/rhicspin/cnipol/commit/848ceac4d}
 
 \end{thebibliography}
 
