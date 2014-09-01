@@ -815,7 +815,7 @@ currents and gains for the channel.  In current implementation this calculation 
 steps: First, when processing alpha measurements channel calibration, we
 calculate gain corrected to zero bias current as $g_{I=0} = g_{\text{alpha}} -
 \frac{dg}{dI} I_{\text{alpha}}$ and store it into \texttt{fZeroBiasGain} field
-of channel's \texttt{ChannelCalib} structure.  Second, when processubg sweep
+of channel's \texttt{ChannelCalib} structure.  Second, when processing sweep
 measurement, we continue calculation on the calibration set inherited from
 alpha file processing step and obtain our effective gain as $g_{\text{sweep}} =
 g_{I=0} + \frac{dg}{dI} I_{\text{sweep}}$, storing it in the
